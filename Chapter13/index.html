@@ -1,0 +1,147 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Vue JS Weather </title>
+    <meta charset="utf-8">
+    <meta content="width=device-width,initial-scale=1,minimal-ui" name="viewport">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic|Material+Icons">
+    <link rel="stylesheet" href="https://unpkg.com/vue-material@beta/dist/vue-material.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/vue-material@beta/dist/theme/default.css">
+  </head>
+
+  <body>
+    <div id="app">
+      <div class="page-container">
+        <md-app md-waterfall md-mode="fixed-last">
+          <md-app-toolbar class="md-primary">
+            <div class="md-toolbar-row">
+              <div class="md-toolbar-section-start">
+                <span class="md-title">VueJS: Weather</span>
+              </div>
+
+              <div class="md-toolbar-section-end">
+                <md-button class="md-icon-button">
+                  <md-icon>more_vert</md-icon>
+                </md-button>
+              </div>
+            </div>
+          </md-app-toolbar>
+
+          <md-app-content>
+            <!-- OUR APP HERE -->
+            <weather></weather>
+          </md-app-content>
+        </md-app>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/vue"></script>
+    <script src="https://unpkg.com/vue-material@beta"></script>
+    <script src="https://unpkg.com/vue-resource@1.0.3/dist/vue-resource.min.js"></script>
+    <script>
+
+
+
+      Vue.component('weather', {
+
+        data: function(){
+            return {
+                weatherLocation: '',
+                weatherApi: '05911854df7aa0be884df72549a75fd9',
+                weather: [],
+                displayWeather: false
+            }
+        },
+
+        methods: {
+            getWeather: function()
+            {
+                return this.$http.get('http://api.openweathermap.org/data/2.5/weather?q='+ this.weatherLocation +'&appid=' + this.weatherApi).then((response) => {
+                    this.weather = response.body;
+                    this.displayWeather = true
+                }, (response) => {
+                    this.weather = [];
+                    this.displayWeather = false
+                });
+            }
+        },
+
+        template: '<div id="weatherApp">' +
+                  '<form v-on:submit.prevent="getWeather"><md-field> <md-icon>place</md-icon> <label>Location</label> <md-input type="text" name="weatherLocation" v-model="weatherLocation"></md-input></md-field>' +
+                    '<md-button class="md-primary md-raised" type="submit">Search</md-button> '+
+                    '</p>' +
+                '</form>' +
+                '<div v-if="displayWeather" class="container display-weather-section"><md-card><md-card-header><h1>{{ weather.name }}</h1></md-card-header>' +
+                '<md-card-content><weather-display v-bind:weatherDisplay="weather.weather[0]"></weather-display>' +
+                '<temperature v-bind:temperature="weather.main"></temperature>' +
+                '<clouds v-bind:cloud="weather.clouds"></clouds>' +
+                '<sun v-bind:sun="weather.sys"></sun>' +
+                '</md-card-content></md-card>' +
+                '</div></div>'
+
+      });
+
+      Vue.component('weather-display', {
+        props: ['weatherDisplay'],
+
+        template: '<div id="weatherDisplay">' +
+                    '<h2>{{ weatherDisplay.main }}</h2>' +
+                    '<p>{{ weatherDisplay.description }}</p>' +
+                    '</div>'
+      });
+
+      Vue.component('temperature', {
+        props: ['temperature'],
+
+        methods: {
+            displayTemp: function( temp )
+            {
+                return parseFloat(temp - 273.15).toFixed(2);
+            }
+        },
+
+        template: '<div id="temp">' +
+                    '<h2>Temperature</h2>' +
+                    '<p>Avg Temp - {{ displayTemp(temperature.temp) }}c</p>' +
+                    '<p>Min Temp - {{ displayTemp(temperature.temp_min) }}c</p>' +
+                    '<p>Max Temp - {{ displayTemp(temperature.temp_max) }}c</p>' +
+                    '</div>'
+      });
+
+      Vue.component('clouds', {
+        props: ['cloud'],
+
+        template: '<div id="cloud">' +
+                    '<h2>Clouds</h2>' +
+                    '<p>Coverage - {{ cloud.all }}%</p>' +
+                    '</div>'
+      });
+
+      Vue.component('sun', {
+        props: ['sun'],
+
+        methods: {
+            timestampToDate: function( timestamp ){
+                var date = new Date(timestamp*1000);
+                return date.toString();
+            }
+        },
+
+        template: '<div id="sun">' +
+                    '<h2>Sun</h2>' +
+                    '<p>Sunrise - {{ timestampToDate(sun.sunrise) }}</p>' +
+                    '<p>Sunset - {{ timestampToDate(sun.sunset) }}</p>' +
+                '</div>'
+      });
+
+      Vue.use(VueMaterial.default)
+      var weather = {
+        el: '#app'
+      }
+      var app = new Vue(weather)
+      app.$mount("#app")
+
+
+    </script>
+  </body>
+</html>
