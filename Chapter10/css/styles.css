@@ -1,0 +1,150 @@
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
+.navbar {
+  padding: 0;
+  background-image: linear-gradient(0deg, rgba(0,0,0,0.00) 0%, rgba(0,0,0,0.50) 50%);
+}
+
+.navbar-brand {
+  padding: 0;
+}
+
+.navbar-nav li a {
+  color: white;
+  text-decoration: none;
+  font-family: 'built_titling', Helvetica, sans-serif;
+  font-weight: 200;
+  font-size: 20px;
+  letter-spacing: 4px;
+}
+
+.navbar-collapse {
+  padding: 10px 15px;
+}
+
+@media (min-width: 992px) {
+  .navbar-collapse {
+    padding: 0;
+  }
+}
+
+.navbar-toggler-icon {
+  color: white;
+}
+
+
+.hero {
+  width: 100%;
+  height: 700px;
+  background-image:
+    linear-gradient(to bottom, rgba(0,0,0,0.3) 0%,rgba(0,0,0,0.4) 100%),
+    url("../img/hero-image.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  color: white;
+}
+
+.custom-font-title {
+  font-family: 'built_titling', Helvetica, sans-serif;
+  font-weight: 400;
+}
+
+.btn-primary {
+  font-size: 18px;
+  letter-spacing: 4.5px;
+  background: #BF0000;
+  color: white;
+  font-family: 'built_titling', Helvetica, sans-serif;
+  font-weight: 400;
+  padding: 12px 22px;
+  border: none;
+  outline: none;
+  transition: all 0.3s ease;
+  border-radius: 0px;
+}
+
+.btn-primary:hover {
+  background: #A3171B;
+}
+
+.btn-primary:active {
+  box-shadow: inset 0px 8px 4px rgba(0, 0, 0, 0.25);
+  background: #A3171B!important;
+  box-shadow: none!important;
+
+}
+
+.btn-primary:focus {
+  box-shadow: inset 0px 8px 4px rgba(0, 0, 0, 0.25);
+  background: #A3171B;
+  box-shadow: none;
+}
+
+
+
+.btn-outline-primary {
+  color: #BF0000;
+  background-color: transparent;
+  background-image: none;
+  border-color: #BF0000;
+}
+
+.btn-outline-primary:hover {
+  background: #A3171B;
+  border-color: #A3171B;
+}
+
+.btn-outline-primary:active {
+  box-shadow: inset 0px 8px 4px rgba(0, 0, 0, 0.25);
+  background: #A3171B!important;
+  box-shadow: none!important;
+  outline: none;
+  border-color: #A3171B!important;
+
+}
+
+.btn-outline-primary:focus {
+  box-shadow: inset 0px 8px 4px rgba(0, 0, 0, 0.25);
+  background: #A3171B;
+  box-shadow: none;
+  outline: none;
+}
+
+.card {
+  border: none;
+}
+
+
+.about {
+  background-image: url(../img/about-us-bg.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.about h1.display-1::after {
+  content: "";
+  display: block;
+  background: #BF0000;
+  width: 90px;
+  height: 2px;
+  margin-top: 30px;
+}
+
+.partners {
+  background: #000;
+}
+
+.footer {
+  background: #000;
+}
+
+.footer .nav-link {
+  text-decoration: none;
+  font-family: 'built_titling', Helvetica, sans-serif;
+  font-weight: 200;
+  font-size: 20px;
+  letter-spacing: 4px;
+}
