@@ -31,6 +31,3 @@ Furthermore, you'll need a computer running on Windows, or OS X; the latest vers
 * [Hands-On Design Patterns with C# and .NET Core](https://www.packtpub.com/application-development/hands-design-patterns-c-and-net-core?utm_source=github&utm_medium=repository&utm_campaign=9781789133646)
 
 * [Practical Internet of Things Security - Second Edition](https://www.packtpub.com/hardware-and-creative/practical-internet-things-security-second-edition?utm_source=github&utm_medium=repository&utm_campaign=9781788625821)
-
-### Suggestions and Feedback
-[Click here](https://docs.google.com/forms/d/e/1FAIpQLSe5qwunkGf6PUvzPirPDtuy1Du5Rlzew23UBp2S-P3wB-GcwQ/viewform) if you have any feedback or suggestions.
