@@ -31,3 +31,7 @@ Furthermore, you'll need a computer running on Windows, or OS X; the latest vers
 * [Hands-On Design Patterns with C# and .NET Core](https://www.packtpub.com/application-development/hands-design-patterns-c-and-net-core?utm_source=github&utm_medium=repository&utm_campaign=9781789133646)
 
 * [Practical Internet of Things Security - Second Edition](https://www.packtpub.com/hardware-and-creative/practical-internet-things-security-second-edition?utm_source=github&utm_medium=repository&utm_campaign=9781788625821)
+### Download a free PDF
+
+ <i>If you have already purchased a print or Kindle version of this book, you can get a DRM-free PDF version at no cost.<br>Simply click on the link to claim your free PDF.</i>
+<p align="center"> <a href="https://packt.link/free-ebook/9781788395038">https://packt.link/free-ebook/9781788395038 </a> </p>
